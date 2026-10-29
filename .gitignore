@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# 汉化脚本运行时目录（含 NeatDM.exe 备份，体积大，勿提交）
+NeatDownloadManager-zh/work/
+
+# 备份文件
+*.bak
+
+# 系统 / 编辑器
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
