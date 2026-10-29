@@ -1,0 +1,20 @@
+# ── 换行符策略 ────────────────────────────────────────────────────────────
+# 仓库内的文本文件统一以 LF 存储；检出时同样为 LF，屏蔽各人 core.autocrlf 的差异，
+# 从而保证任何系统 clone 下来都是同一份字节，diff 不会出现"整个文件都变了"。
+*           text=auto eol=lf
+
+# 唯一例外：Windows 批处理。cmd.exe 解析 LF 结尾的 .bat 并不可靠
+# （goto 标签、if (...) 多行块会出错），必须保证检出后是 CRLF。
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+
+# ── 二进制文件：禁止任何换行符转换与文本猜测 ─────────────────────────────
+# xpi 本质是 zip 且内含 Mozilla 签名，任何转换都会损坏签名
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.ico       binary
+*.zip       binary
+*.xpi       binary
+*.crx       binary
+*.exe       binary
